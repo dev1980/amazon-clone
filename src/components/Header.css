@@ -18,6 +18,7 @@
 .header__optionBasket {
   display: flex;
   align-items: center;
+  margin-right: 10px;
 }
 
 .header__basketCout {
