@@ -2,7 +2,7 @@ export const initialState = {
   basket: [],
 };
 
-function reducer(state, action) {
+const reducer = (state, action)=> {
   switch(action.type){
     case 'ADD_TO_BASKET':
       // logic to add item to the basket

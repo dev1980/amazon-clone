@@ -4,16 +4,18 @@
 import React, { createContext, useContext, useReducer } from "react";
 
 //This is data layer
-export const StateContext = createContext();
+export let StateContext = createContext();
 
 //Build a provider
 
-export const StateProvier = ({ reducer, initialState, children }) => (
-<StateContext.Provider value = { useReducer(reducer, initialState)}>
-  {children}
-</StateContext.Provider>
-)
+export const StateProvier = ({children, reducer, initialState}) => {
+
+  let mainReducer = useReducer(reducer, initialState);
+  return <StateContext.Provider value={mainReducer}>
+      {children}
+      </StateContext.Provider>
+}
 
 //This is how we use inside of a component
 
-export const useStateValue = () => useContext(StateContext)
+const [state, dispatch] = useContext(StateContext);
